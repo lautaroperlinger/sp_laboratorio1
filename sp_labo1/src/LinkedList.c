@@ -558,3 +558,27 @@ LinkedList* ll_map(LinkedList* this,int(*fn)(void* element))
 	}
 	return lista_mapeada;
 }
+float ll_count(LinkedList* this, int (*fn)(void* element))
+{
+	int i;
+	eLibro* aux_libro;
+	float retorno;
+	retorno=0;
+	if(this!=NULL&&fn!=NULL)
+	{
+		for(i=0;i<ll_len(this);i++)
+		{
+			switch(fn(ll_get(this,i)))
+			{
+				case 1:
+					retorno++;
+					break;
+				case -1:
+					aux_libro=ll_get(this,i);
+					retorno=retorno+aux_libro->precio;
+					break;
+			}
+		}
+	}
+	return retorno;
+}

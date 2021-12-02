@@ -117,6 +117,8 @@ int filtrar_libros(void* elemento);
 /// @param elemento
 /// @return
 int mapear_libros(void* elemento);
+int libros_mayor500(void* elemento);
+int sumatoria_libros_pearson(void* elemento);
 //Archivos
 /// @brief
 /// carga el archivo de libros

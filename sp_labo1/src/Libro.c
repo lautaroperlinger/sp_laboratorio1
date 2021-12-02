@@ -176,22 +176,52 @@ int mapear_libros(void* elemento)
 	retorno=0;
 	eLibro* libro_aux;
 	libro_aux=(eLibro*)elemento;
-	if(elemento!=NULL)
+	if(elemento!=NULL)//verifica que el parametro este bien
 	{
 		switch(libro_aux->ideditorial)
 		{
 			case 1:
-				if(libro_aux->precio>=300)
+				if(libro_aux->precio>=300)//verifica que el precio entre en el rango que se puede realizar el descuento
 				{
 					retorno=1;
 				}
 				break;
 			case 2:
-				if(libro_aux->precio<=200)
+				if(libro_aux->precio<=200)//verifica que el precio entre en el rango que se puede realizar el descuento
 				{
 					retorno=2;
 				}
 				break;
+		}
+	}
+	return retorno;//retorna el id de la editorial que pertenece
+}
+int libros_mayor500(void* elemento)
+{
+	eLibro* libro_aux;
+	int retorno;
+	retorno=0;
+	libro_aux=(eLibro*)elemento;
+	if(elemento!=NULL)
+	{
+		if(libro_aux->precio>500)//el id de la editorial minotauro es 4
+		{
+			retorno=1;
+		}
+	}
+	return retorno;
+}
+int sumatoria_libros_pearson(void* elemento)
+{
+	eLibro* libro_aux;
+	int retorno;
+	retorno=0;
+	libro_aux=(eLibro*)elemento;
+	if(elemento!=NULL)
+	{
+		if(libro_aux->ideditorial==3)//el id de la editorial minotauro es 4
+		{
+			retorno=-1;
 		}
 	}
 	return retorno;

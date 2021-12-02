@@ -30,7 +30,7 @@ int main(void)
 	flageditoriales=0;
 	do
 	{
-		Menu(&opcion, "1-Cargas lista de libros\n2-Cargar lista de editoriales\n3-Ordenar autores\n4-Imprimir libros\n5-Listar libros de editorial MINOTAURO\n6-mapear la lista con descuento\n7-Salir\n", "Opcion no valida.\n", 6, 0);
+		Menu(&opcion, "1-Cargas lista de libros\n2-Cargar lista de editoriales\n3-Ordenar autores\n4-Imprimir libros\n5-Listar libros de editorial MINOTAURO\n6-mapear la lista con descuento\n7-Determinar cuántos libros cuestan mas de $500.\n8-Determinar la sumatoria de precios de los libros de la editorial PEARSON\n9-Salir\n", "Opcion no valida.\n", 9, 0);
 		switch(opcion)
 		{
 			case 1:
@@ -112,7 +112,41 @@ int main(void)
 					puts("primero se tiene que cargar los archivos de libros y editoriales.\n");
 				}
 				break;
+			case 7:
+				if(flaglibros==1&&flageditoriales==1)
+				{
+					if(controlador_librosmayor500(listalibros)==1)
+					{
+						puts("Se determino correctamente la cantidad de libros.\n");
+					}
+					else
+					{
+						puts("Error.\n");
+					}
+				}
+				else
+				{
+					puts("primero se tiene que cargar los archivos de libros y editoriales.\n");
+				}
+				break;
+			case 8:
+				if(flaglibros==1&&flageditoriales==1)
+				{
+					if(controlador_sumatoriaPearson(listalibros)==1)
+					{
+						puts("Se determino correctamente la sumatoria de la editorial PEARSON.\n");
+					}
+					else
+					{
+						puts("Error.\n");
+					}
+				}
+				else
+				{
+					puts("primero se tiene que cargar los archivos de libros y editoriales.\n");
+				}
+				break;
 		}
-	}while(opcion!=7);
+	}while(opcion!=9);
 	return EXIT_SUCCESS;
 }

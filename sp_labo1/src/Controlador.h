@@ -8,8 +8,6 @@
 #ifndef CONTROLADOR_H_
 #define CONTROLADOR_H_
 
-
-
 #endif /* CONTROLADOR_H_ */
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,3 +53,5 @@ int controlador_listaFiltrada(LinkedList* listalibros,LinkedList* listaeditorial
 /// @param listalibro
 /// @return
 int controlador_listaMapeada(LinkedList* listalibro);
+int controlador_librosmayor500(LinkedList* listalibro);
+int controlador_sumatoriaPearson(LinkedList* listalibro);

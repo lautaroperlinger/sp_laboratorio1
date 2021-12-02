@@ -89,6 +89,7 @@ int controlador_listaFiltrada(LinkedList* listalibros,LinkedList* listaeditorial
 	pFun=&filtrar_libros;
 	lista_aux=ll_newLinkedList();
 	retorno=0;
+	if(listalibros!=NULL&&listaeditorial!=NULL&&pFun!=NULL)
 	{
 		lista_aux=ll_filter(listalibros, pFun);
 		if(lista_aux!=NULL)
@@ -110,7 +111,7 @@ int controlador_listaMapeada(LinkedList* listalibro)
 	pFun=&mapear_libros;
 	char archivo_nuevo[129];
 	retorno=0;
-	if(listalibro!=NULL)
+	if(listalibro!=NULL&&pFun!=NULL)
 	{
 		lista_mapeada=ll_map(listalibro,pFun);
 		if(lista_mapeada!=NULL)
@@ -119,6 +120,36 @@ int controlador_listaMapeada(LinkedList* listalibro)
 			guardar_archivo_libros(archivo_nuevo, lista_mapeada);
 			retorno=1;
 		}
+	}
+	return retorno;
+}
+int controlador_librosmayor500(LinkedList* listalibro)
+{
+	int retorno;
+	int total;
+	int (*pFun)(void*);
+	pFun=&libros_mayor500;
+	retorno=0;
+	if(listalibro!=NULL)
+	{
+		total=(int)ll_count(listalibro,pFun);
+		printf("El total de libros con precio mayor a 500 es:%d\n",total);
+		retorno=1;
+	}
+	return retorno;
+}
+int controlador_sumatoriaPearson(LinkedList* listalibro)
+{
+	int retorno;
+	float total;
+	int (*pFun)(void*);
+	pFun=&sumatoria_libros_pearson;
+	retorno=0;
+	if(listalibro!=NULL)
+	{
+		total=ll_count(listalibro,pFun);
+		printf("La sumatoria de precios de los libros de la editorial PEARSON es:%f\n",total);
+		retorno=1;
 	}
 	return retorno;
 }
