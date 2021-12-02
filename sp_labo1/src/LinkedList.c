@@ -541,7 +541,7 @@ LinkedList* ll_map(LinkedList* this,int(*fn)(void* element))
 	{
 		for(i=0;i<ll_len(this);i++)
 		{
-			switch(fn(ll_get(this, i)))
+			/*switch(fn(ll_get(this, i)))
 			{
 				case 1://1 si pertence a la editorial planeta
 					libro_aux=ll_get(this, i);
@@ -553,6 +553,18 @@ LinkedList* ll_map(LinkedList* this,int(*fn)(void* element))
 					libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.1;
 					ll_add(lista_mapeada, libro_aux);
 					break;
+			}*/
+			if(fn(ll_get(this, i))==1)
+			{
+				libro_aux=ll_get(this, i);
+				libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.2;
+				ll_add(lista_mapeada,libro_aux);
+			}
+			else if(ll_get(this, i))==2)
+			{
+				libro_aux=ll_get(this,i);
+				libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.1;
+				ll_add(lista_mapeada, libro_aux);
 			}
 		}
 	}
@@ -568,16 +580,15 @@ float ll_count(LinkedList* this, int (*fn)(void* element))
 	{
 		for(i=0;i<ll_len(this);i++)
 		{
-			switch(fn(ll_get(this,i)))
-			{
-				case 1:
+				if(fn(ll_get(this,i))==1)
+				{
 					retorno++;
-					break;
-				case -1:
+				}
+				else if(fn(ll_get(this,i))==-1)
+				{
 					aux_libro=ll_get(this,i);
 					retorno=retorno+aux_libro->precio;
-					break;
-			}
+				}
 		}
 	}
 	return retorno;
