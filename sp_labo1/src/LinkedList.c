@@ -475,7 +475,7 @@ LinkedList* ll_clone(LinkedList* this)
     if(this!=NULL)
     {
     	cloneArray=ll_newLinkedList();
-    	cloneArray=ll_subList(this, 0, this->size);
+    	cloneArray=ll_subList(this, 0, ll_len(this));
     }
 
     return cloneArray;
@@ -519,12 +519,11 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 	LinkedList* lista_filtrada;
 	int i;
 	lista_filtrada=ll_newLinkedList();
-	if(this!=NULL&&fn!=NULL)
+	if(this!=NULL&&fn!=NULL)//verifico los parametros
 	{
 		for(i=0;i<ll_len(this);i++)
 		{
-			//element=ll_get(this, i);
-			if(fn(ll_get(this, i))==1)
+			if(fn(ll_get(this, i))==1)//la funcion da 1 si pertenece a la editorial Minotauro
 			{
 				ll_add(lista_filtrada, ll_get(this, i));
 			}
@@ -538,18 +537,18 @@ LinkedList* ll_map(LinkedList* this,int(*fn)(void* element))
 	int i;
 	eLibro* libro_aux;
 	lista_mapeada=ll_newLinkedList();
-	if(this!=NULL&&fn!=NULL)
+	if(this!=NULL&&fn!=NULL)//verifico los parametros
 	{
 		for(i=0;i<ll_len(this);i++)
 		{
 			switch(fn(ll_get(this, i)))
 			{
-				case 1:
+				case 1://1 si pertence a la editorial planeta
 					libro_aux=ll_get(this, i);
 					libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.2;
 					ll_add(lista_mapeada,libro_aux);
 					break;
-				case 2:
+				case 2://2 si pertenece a la editorial siglo xxi editores
 					libro_aux=ll_get(this,i);
 					libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.1;
 					ll_add(lista_mapeada, libro_aux);

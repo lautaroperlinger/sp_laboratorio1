@@ -93,9 +93,8 @@ int controlador_listaFiltrada(LinkedList* listalibros,LinkedList* listaeditorial
 		lista_aux=ll_filter(listalibros, pFun);
 		if(lista_aux!=NULL)
 		{
-			//controlador_mostrarlibros(lista_aux, listaeditorial);
-			PedirCadena(archivo_nuevo, "Ingrese el nombre del archivo nuevo.", "No esta permitido ese nombre", 126);
-			guardar_archivo_libros(archivo_nuevo, lista_aux);
+			PedirCadena(archivo_nuevo, "Ingrese el nombre del archivo nuevo.", "No esta permitido ese nombre", 126);//pide el nombre del archivo nuevo
+			guardar_archivo_libros(archivo_nuevo, lista_aux);//crea el archivo nuevo
 			retorno=1;
 		}
 

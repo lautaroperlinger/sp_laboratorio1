@@ -178,23 +178,20 @@ int mapear_libros(void* elemento)
 	libro_aux=(eLibro*)elemento;
 	if(elemento!=NULL)
 	{
-		//printf("%d",libro_aux->ideditorial);
 		switch(libro_aux->ideditorial)
 		{
-		case 1:
-			if(libro_aux->precio>=300)
-			{
-				retorno=1;
-			}
-			//printf("%d",libro_aux->ideditorial);
-			break;
-		case 2:
-			if(libro_aux->precio<=200)
-			{
-				retorno=2;
-			}
-			//printf("%d",libro_aux->ideditorial);
-			break;
+			case 1:
+				if(libro_aux->precio>=300)
+				{
+					retorno=1;
+				}
+				break;
+			case 2:
+				if(libro_aux->precio<=200)
+				{
+					retorno=2;
+				}
+				break;
 		}
 	}
 	return retorno;
