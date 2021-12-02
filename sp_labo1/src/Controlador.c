@@ -130,7 +130,7 @@ int controlador_librosmayor500(LinkedList* listalibro)
 	int (*pFun)(void*);
 	pFun=&libros_mayor500;
 	retorno=0;
-	if(listalibro!=NULL)
+	if(listalibro!=NULL&&pFun!=NULL)
 	{
 		total=(int)ll_count(listalibro,pFun);
 		printf("El total de libros con precio mayor a 500 es:%d\n",total);
@@ -145,7 +145,7 @@ int controlador_sumatoriaPearson(LinkedList* listalibro)
 	int (*pFun)(void*);
 	pFun=&sumatoria_libros_pearson;
 	retorno=0;
-	if(listalibro!=NULL)
+	if(listalibro!=NULL&&pFun!=NULL)
 	{
 		total=ll_count(listalibro,pFun);
 		printf("La sumatoria de precios de los libros de la editorial PEARSON es:%f\n",total);

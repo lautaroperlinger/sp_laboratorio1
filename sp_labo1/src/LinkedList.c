@@ -560,7 +560,7 @@ LinkedList* ll_map(LinkedList* this,int(*fn)(void* element))
 				libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.2;
 				ll_add(lista_mapeada,libro_aux);
 			}
-			else if(ll_get(this, i))==2)
+			else if((ll_get(this, i))==2)
 			{
 				libro_aux=ll_get(this,i);
 				libro_aux->precio=libro_aux->precio-(libro_aux->precio)*0.1;
